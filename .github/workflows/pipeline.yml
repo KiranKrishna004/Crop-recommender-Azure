@@ -1,0 +1,16 @@
+name: CI/CD Pipeline
+on: [push]
+jobs: 
+  Pipelining: 
+    runs-on: ubuntu-18.04
+    steps: 
+      - 
+        name: "SSH auth"
+        run: "echo \"ssh auth in progress\""
+      - 
+        name: "executing remote ssh commands using password"
+        uses: appleboy/ssh-action@master
+        with: 
+          host: "${{ secrets.IP_ADD }}"
+          script: whoami
+          username: "${{ secrets.USER }}"
