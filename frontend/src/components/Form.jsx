@@ -18,10 +18,11 @@ const Form = ({
 	setTemp,
 	setPh,
 }) => {
+	console.log(process.env.REACT_APP_BACKEND_URL)
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		axios
-			.post("http://127.0.0.1:5000/", [n, p, k, temp, humidity, pH, rainfall])
+			.post(process.env.REACT_APP_BACKEND_URL, [n, p, k, temp, humidity, pH, rainfall])
 			.then((result1) => {
 				updateResult(result1.data.result);
 			})
